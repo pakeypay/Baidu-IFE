@@ -1,0 +1,50 @@
+
+html,body{
+        margin:0;   
+        /*不同的浏览器有不同的默认样式。IE的body margin为15px 10px。来自知乎
+        http://www.zhihu.com/question/20047647*/
+    }
+
+.flex-container {
+    position:absolute;          /*position属性首先影响自身位置，其次影响子元素的基准*/
+    box-sizing:border-box;      /*W-H默认对应content-box*/
+    width:100%;
+    padding: 20px;
+    flex-flow: row wrap;
+    display: flex;
+    align-items:center;
+    justify-content: space-between;
+}
+.item{
+    border: 1px solid #FF0000;
+    box-sizing:border-box;
+    width: 150px;                       /*共同的属性合并，然后使用复合选择器*/
+}
+.f1 {
+    height: 120px;
+
+}
+.f2 {
+    height: 100px;
+}
+.f3 {
+    height: 40px;
+
+}
+.f4 {
+    height: 200px;    
+    border: 1px solid #0000FF;          /*属性冲突，就近原则*/
+}
+
+@media (max-width: 640px) {
+    .flex-container {
+        align-items: flex-start;
+    }
+    .item{
+        margin-top: 20px;
+    }
+    .f4 {
+        order: -1;                       /*默认值为0*/
+        margin-top: 0px;
+    }
+}
