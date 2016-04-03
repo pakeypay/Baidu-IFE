@@ -1,38 +1,38 @@
-<!DOCTYPE>
+ï»¿<!DOCTYPE>
 <html>
   <head>
-    <meta charset="gbk">
+    <meta charset="utf-8">
     <title>IFE JavaScript Task 03</title>
   </head>
 <body>
 
   <ul id="source">
-    <li>±±¾©¿ÕÆøÖÊÁ¿£º<b>90</b></li>
-    <li>ÉÏº£¿ÕÆøÖÊÁ¿£º<b>70</b></li>
-    <li>Ìì½ò¿ÕÆøÖÊÁ¿£º<b>80</b></li>
-    <li>¹ãÖİ¿ÕÆøÖÊÁ¿£º<b>50</b></li>
-    <li>ÉîÛÚ¿ÕÆøÖÊÁ¿£º<b>40</b></li>
-    <li>¸£Öİ¿ÕÆøÖÊÁ¿£º<b>32</b></li>
-    <li>³É¶¼¿ÕÆøÖÊÁ¿£º<b>90</b></li>
+    <li>åŒ—äº¬ç©ºæ°”è´¨é‡ï¼š<b>90</b></li>
+    <li>ä¸Šæµ·ç©ºæ°”è´¨é‡ï¼š<b>70</b></li>
+    <li>å¤©æ´¥ç©ºæ°”è´¨é‡ï¼š<b>80</b></li>
+    <li>å¹¿å·ç©ºæ°”è´¨é‡ï¼š<b>50</b></li>
+    <li>æ·±åœ³ç©ºæ°”è´¨é‡ï¼š<b>40</b></li>
+    <li>ç¦å·ç©ºæ°”è´¨é‡ï¼š<b>32</b></li>
+    <li>æˆéƒ½ç©ºæ°”è´¨é‡ï¼š<b>90</b></li>
   </ul>
 
   <ul id="resort">
     <!-- 
-    <li>µÚÒ»Ãû£º±±¾©¿ÕÆøÖÊÁ¿£º<b>90</b></li>
-    <li>µÚ¶şÃû£º±±¾©¿ÕÆøÖÊÁ¿£º<b>90</b></li>
-    <li>µÚÈıÃû£º±±¾©¿ÕÆøÖÊÁ¿£º<b>90</b></li>
+    <li>ç¬¬ä¸€åï¼šåŒ—äº¬ç©ºæ°”è´¨é‡ï¼š<b>90</b></li>
+    <li>ç¬¬äºŒåï¼šåŒ—äº¬ç©ºæ°”è´¨é‡ï¼š<b>90</b></li>
+    <li>ç¬¬ä¸‰åï¼šåŒ—äº¬ç©ºæ°”è´¨é‡ï¼š<b>90</b></li>
      -->
 
   </ul>
 
-  <button id="sort-btn">ÅÅĞò</button>
+  <button id="sort-btn">æ’åº</button>
 
 <script type="text/javascript">
 
 /**
- * getData·½·¨
- * ¶ÁÈ¡idÎªsourceµÄÁĞ±í£¬»ñÈ¡ÆäÖĞ³ÇÊĞÃû×Ö¼°³ÇÊĞ¶ÔÓ¦µÄ¿ÕÆøÖÊÁ¿
- * ·µ»ØÒ»¸öÊı×é£¬¸ñÊ½¼ûº¯ÊıÖĞÊ¾Àı
+ * getDataæ–¹æ³•
+ * è¯»å–idä¸ºsourceçš„åˆ—è¡¨ï¼Œè·å–å…¶ä¸­åŸå¸‚åå­—åŠåŸå¸‚å¯¹åº”çš„ç©ºæ°”è´¨é‡
+ * è¿”å›ä¸€ä¸ªæ•°ç»„ï¼Œæ ¼å¼è§å‡½æ•°ä¸­ç¤ºä¾‹
  */
 function getData() {
   /*
@@ -41,18 +41,18 @@ function getData() {
 
   /*
   data = [
-    ["±±¾©", 90],
-    ["±±¾©", 90]
-    ¡­¡­
+    ["åŒ—äº¬", 90],
+    ["åŒ—äº¬", 90]
+    â€¦â€¦
   ]
   */
 	var data=[];
 	var list=document.getElementById("source").getElementsByTagName("li");
 	for(var i=0;i< list.length;i++){
     var record=[];
-    var text=list[i].textContent;//ÌáÈ¡liÖĞµÄÄÚÈİ
-    var b=list[i].getElementsByTagName('b')[0];//ÌáÈ¡liÖĞµÄbÖĞÄÚÈİ 
-    record.push(text.substring(0,text.indexOf('£º')));//substring±êÇ©×÷ÓÃ 
+    var text=list[i].textContent;//æå–liä¸­çš„å†…å®¹
+    var b=list[i].getElementsByTagName('b')[0];//æå–liä¸­çš„bä¸­å†…å®¹ 
+    record.push(text.substring(0,text.indexOf('ï¼š')));//substringæ ‡ç­¾ä½œç”¨ 
     record.push(b.textContent);
     data.push(record);
 	}
@@ -61,11 +61,11 @@ function getData() {
 
 /**
  * sortAqiData
- * °´¿ÕÆøÖÊÁ¿¶Ôdata½øĞĞ´ÓĞ¡µ½´óµÄÅÅĞò
- * ·µ»ØÒ»¸öÅÅĞòºóµÄÊı×é
+ * æŒ‰ç©ºæ°”è´¨é‡å¯¹dataè¿›è¡Œä»å°åˆ°å¤§çš„æ’åº
+ * è¿”å›ä¸€ä¸ªæ’åºåçš„æ•°ç»„
  */
 function sortAqiData(data) {
-  for(var i=0;i<data.length;i++){ //²ÉÓÃÃ°ÅİÅÅĞòËã·¨
+  for(var i=0;i<data.length;i++){ //é‡‡ç”¨å†’æ³¡æ’åºç®—æ³•
     for(var j =i+1;j<data.length;j++){
         if(data[i][1]<data[j][1]){
             var a,b;
@@ -83,18 +83,18 @@ function sortAqiData(data) {
 
 /**
  * render
- * ½«ÅÅºÃĞòµÄ³ÇÊĞ¼°¿ÕÆøÖÊÁ¿Ö¸Êı£¬Êä³öÏÔÊ¾µ½idÎ»resortµÄÁĞ±íÖĞ
- * ¸ñÊ½¼ûulÖĞµÄ×¢ÊÍµÄ²¿·Ö
+ * å°†æ’å¥½åºçš„åŸå¸‚åŠç©ºæ°”è´¨é‡æŒ‡æ•°ï¼Œè¾“å‡ºæ˜¾ç¤ºåˆ°idä½resortçš„åˆ—è¡¨ä¸­
+ * æ ¼å¼è§ulä¸­çš„æ³¨é‡Šçš„éƒ¨åˆ†
  */
 function render(data) {
     var  list='';
     for(var i=0;i < data.length;i++){
-          list += '<li>µÚ'+convert(i)+'Ãû£º'+data[i][0]+'£º<b>'+data[i][1]+'</b></li>';
+          list += '<li>ç¬¬'+convert(i)+'åï¼š'+data[i][0]+'ï¼š<b>'+data[i][1]+'</b></li>';
       }
     document.getElementById("resort").innerHTML=list;
 }
 function convert(num){
-    var chinesenum =["Ò»","¶ş","Èı","ËÄ","Îå","Áù","Æß","°Ë","¾Å","Ê®"];
+    var chinesenum =["ä¸€","äºŒ","ä¸‰","å››","äº”","å…­","ä¸ƒ","å…«","ä¹","å"];
     return chinesenum[num];
 }
 
@@ -107,7 +107,7 @@ function btnHandle() {
 
 function init() {
 
-  // ÔÚÕâÏÂÃæ¸øsort-btn°ó¶¨Ò»¸öµã»÷ÊÂ¼ş£¬µã»÷Ê±´¥·¢btnHandleº¯Êı
+  // åœ¨è¿™ä¸‹é¢ç»™sort-btnç»‘å®šä¸€ä¸ªç‚¹å‡»äº‹ä»¶ï¼Œç‚¹å‡»æ—¶è§¦å‘btnHandleå‡½æ•°
   document.getElementById("sort-btn").onclick=btnHandle;
 }
 
