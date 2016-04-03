@@ -2,7 +2,7 @@
 <html>
   <head>
     <meta charset="gbk">
-    <title>IFE JavaScript Task 01</title>
+    <title>IFE JavaScript Task 03</title>
   </head>
 <body>
 
@@ -47,13 +47,16 @@ function getData() {
   ]
   */
 	var data=[];
-	var li=document.getElementById("source").getElementsByTagName("li");
-	for(var i=0;li.length;i++){
-		li[i].innerText;
+	var list=document.getElementById("source").getElementsByTagName("li");
+	for(var i=0;i< list.length;i++){
+    var record=[];
+    var text=list[i].textContent;//提取li中的内容
+    var b=list[i].getElementsByTagName('b')[0];//提取li中的b中内容 
+    record.push(text.substring(0,text.indexOf('：')));//substring标签作用 
+    record.push(b.textContent);
+    data.push(record);
 	}
-	alert(data);
   return data;
-
 }
 
 /**
@@ -62,7 +65,20 @@ function getData() {
  * 返回一个排序后的数组
  */
 function sortAqiData(data) {
-
+  for(var i=0;i<data.length;i++){ //采用冒泡排序算法
+    for(var j =i+1;j<data.length;j++){
+        if(data[i][1]<data[j][1]){
+            var a,b;
+            a = data[i][1];
+            b = data[i][0];
+            data[i][1]=data[j][1];
+            data[i][0]=data[j][0];
+            data[j][1]=a;
+            data[j][0]=b;
+        }
+    }
+  }
+  return data;
 }
 
 /**
@@ -71,11 +87,18 @@ function sortAqiData(data) {
  * 格式见ul中的注释的部分
  */
 function render(data) {
-
+    var  list='';
+    for(var i=0;i < data.length;i++){
+          list += '<li>第'+convert(i)+'名：'+data[i][0]+'：<b>'+data[i][1]+'</b></li>';
+      }
+    document.getElementById("resort").innerHTML=list;
+}
+function convert(num){
+    var chinesenum =["一","二","三","四","五","六","七","八","九","十"];
+    return chinesenum[num];
 }
 
 function btnHandle() {
-  alert("dao");
   var aqiData = getData();
   aqiData = sortAqiData(aqiData);
   render(aqiData);
