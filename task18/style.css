@@ -1,0 +1,21 @@
+.block{
+  margin: 10px 15px;
+  width: 40px;
+  height: 60px;
+  text-align: center;
+  line-height:60px;
+  background: #FF0000;
+  border: 1px solid #00FF00;
+}
+
+#blockchart {
+    position:absolute;          /*position属性首先影响自身位置，其次影响子元素的基准*/
+    box-sizing:border-box;      /*W-H默认对应content-box*/
+    width:100%;
+    padding: 20px;
+    flex-flow: row wrap;
+    display: flex;
+    align-items:center;
+    justify-content: flex-start;
+}
+
