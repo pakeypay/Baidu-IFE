@@ -1,0 +1,39 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+		<title>Task19_ShawnZhao</title>
+		<link href="style.css" rel="stylesheet" type="text/css" />
+		<script src="script.js"></script>
+	</head>
+
+	<body>
+		<form>
+		  	<textarea id="NumberEdit" cols="20" rows="1">50</textarea>
+		  	<input name="LeftIn" type="button" value="左侧入" onclick="NumLeftIn()" />
+		  	<input name="LeftOut" type="button" value="左侧出" onclick="NumLeftOut()" />
+		  	<input name="RightIn" type="button" value="右侧入" onclick="NumRightIn()" />
+		  	<input name="RightOut" type="button" value="右侧出" onclick="NumRightOut()" />
+		</form>
+		 
+		<div id='blockchart'>		</div>
+
+		<form>
+		  	<input name="BubbleSort" type="button" value="演示冒泡排序" onclick="MyBubbleSort()" />
+		  	<input name="SelectionSort" type="button" value="演示选择排序" onclick="MySelectionSort()" />
+		  	<input name="QuickSort" type="button" value="演示快速排序" onclick="MyQuickSort()" />
+		  	<input name="RadixSort" type="button" value="演示基数排序" onclick="MyRadixSort()" />
+		  	<input name="ShellSort" type="button" value="演示希尔排序" onclick="MyShellSort()" />
+		  	<input name="Refresh" type="button" value="重新生成数组" onclick="init()" />
+		</form>
+
+		<form style="margin-top: 20px">
+		    <input id="SearchText" type="text" placeholder="此处输入要查询的内容"/>
+    		<input name="Search" type="button" value="查询" onclick="MySearch()"/>
+		</form>
+
+		<script >
+			init();
+		</script>
+	</body>	
+</html>
