@@ -124,11 +124,11 @@
 	}
 	function checkAll(){
 		var str =["name","password","password1","email","phone"];//遍历所有元素
-		alert("万事具备！");
+		//alert("万事具备！");
 		for(var i=0;i<str.length;i++){
 			//alert(document.getElementById(str[i]+"hint").style.color=='red');
 			if (document.getElementById(str[i]+"hint").style.color=='red') {
-				alert(document.getElementById(str[i]).getAttribute("name")+"显示:\n输入有误");
+				confirm(document.getElementById(str[i]).getAttribute("name")+"显示:\n输入有误");
 			};
 		}
 	}
