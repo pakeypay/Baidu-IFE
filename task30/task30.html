@@ -1,0 +1,147 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<title>task30.html</title>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<style type="text/css">
+	#button1{
+		font-size:12px;/*设置文字字号*/
+		color: white;
+   		background-color:blue;/*设置颜色*/
+   		font-weight:bold;/*设置字体加粗*/
+   		border-radius:4px;
+   		height: 30px;
+   		width: 50px;
+   		margin:10pt 10pt 0pt 160pt;
+	}
+	#name,#password,#password1, #email ,#phone{
+		font-size:12px;/*设置文字字号*/
+   		border-radius:4px;
+   		height: 24px;
+   		margin:0pt 10pt 0pt 10pt;
+	}
+	label{
+		display:inline-block;
+		width:100px;
+		font-size:20px;/*设置文字字号*/
+		text-align:right;
+	}
+	#hint{
+		font-size:12px;/*设置文字字号*/
+		color:#345456;
+		margin:0pt 0pt 0pt 0pt;
+	}
+
+</style>
+<script type="text/javascript">
+	
+	function show(pwd){
+		var id = pwd.id;
+		if(id=="name"){
+			document.getElementById(id+"hint").style.color='#345456';
+			document.getElementById(id+"hint").innerHTML="必填，长度为4~16个字符";
+		}
+		if(id=="password1"){
+			document.getElementById(id+"hint").style.color='#345456';
+			document.getElementById(id+"hint").innerHTML="再次输入相同密码";
+		}
+	}
+	function check(pwd){
+		var value = pwd.value;
+		var id=pwd.id;
+		var length = value.replace(/[^\x00-\xff]/g,"NB").length; //将1个汉字转化为2个字符
+		if(id=='name'){
+			if(length==0){
+				document.getElementById(id+"hint").style.color='red';
+				document.getElementById(id+"hint").innerHTML="姓名不可以为空";
+				document.getElementById(id).style.border='5px red solid';
+				return ;
+			}
+			if(length>16||length<4){
+				document.getElementById(id+"hint").style.color='#345456';
+				document.getElementById(id+"hint").innerHTML="必填，长度为4~16个字符";
+				document.getElementById(id).value=''
+				return ;
+			}
+			document.getElementById(id+"hint").style.color='green';
+			document.getElementById(id).style.border='5px green solid';
+			document.getElementById(id+"hint").innerHTML="名称格式正确";
+		}
+		if (id=='password'){
+			if(length==0){
+				document.getElementById(id+"hint").style.color='red';
+				document.getElementById(id+"hint").innerHTML="密码不可以为空";
+				document.getElementById(id).style.border='5px red solid';
+				document.getElementById(id).value=''
+				return;
+			}
+			document.getElementById(id+"hint").style.color='green';
+			document.getElementById(id).style.border='5px green solid';
+			document.getElementById(id+"hint").innerHTML="密码可用";
+		}
+		if (id=='email') {
+			 var filter  = /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/;//正则表达式判断邮箱是否满足条件
+			 if (filter.test(value)) {
+			 	document.getElementById(id+"hint").style.color='green';
+				document.getElementById(id).style.border='5px green solid';
+				document.getElementById(id+"hint").innerHTML="邮箱正确";
+			 }else {
+				document.getElementById(id+"hint").style.color='red';
+				document.getElementById(id+"hint").innerHTML="邮箱格式错误";
+				document.getElementById(id).style.border='5px red solid';
+				document.getElementById(id).value=''
+				return;
+			}
+		}
+		if(id=='phone'){
+			var re = /^1\d{10}$/;//正则表达式判断手机是否满足条件
+		    if (re.test(value)) {
+		        document.getElementById(id+"hint").style.color='green';
+				document.getElementById(id).style.border='5px green solid';
+				document.getElementById(id+"hint").innerHTML="手机格式正确";
+		    } else {
+		        document.getElementById(id+"hint").style.color='red';
+				document.getElementById(id+"hint").innerHTML="手机号码格式错误";
+				document.getElementById(id).style.border='5px red solid';
+				document.getElementById(id).value=''
+				return;
+		    }			
+		}
+		if (id=='password1'){
+			var value1=document.getElementById("password").value;
+			//alert(value);
+			//alert(value1);
+			if(value!=value1){
+				document.getElementById(id+"hint").style.color='red';
+				document.getElementById(id+"hint").innerHTML="密码输入不一致";
+				document.getElementById(id).style.border='5px red solid';
+				return;
+			}
+			document.getElementById(id+"hint").style.color='green';
+			document.getElementById(id).style.border='5px green solid';
+			document.getElementById(id+"hint").innerHTML="密码输入一致";
+		}
+	}
+	function checkAll(){
+		var str =["name","password","password1","email","phone"];//遍历所有元素
+		alert("万事具备！");
+		for(var i=0;i<str.length;i++){
+			//alert(document.getElementById(str[i]+"hint").style.color=='red');
+			if (document.getElementById(str[i]+"hint").style.color=='red') {
+				alert(document.getElementById(str[i]).getAttribute("name")+"显示:\n输入有误");
+			};
+		}
+	}
+</script>
+</head>
+<body>
+	<form method="post">
+		<label>名称</label><input type="text" id="name" name="名称"onfocus="show(this);"  onblur="check(this);"></input><span id="namehint"></span><br>
+		<label>密码</label><input type="password" id="password" name="密码" onblur="check(this);"></input><span id="passwordhint"></span><br>
+		<label>密码确认</label><input type="password" id="password1" name="密码确认"  onfocus="show(this);" onblur="check(this);" ></input><span id="password1hint"></span><br>
+		<label>邮箱</label><input type="text" id="email" name="邮箱" onblur="check(this);"></input><span id="emailhint"></span><br>
+		<label>手机</label><input type="text" id="phone" name="手机" onblur="check(this);"></input><span id="phonehint"></span><br>
+		<input type="button" value="提交" id="button1" onclick="checkAll();"></input>
+	</form>
+</body>
+</html>
