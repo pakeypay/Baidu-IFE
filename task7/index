@@ -178,11 +178,11 @@
 	        <input id="email-wrap" type="text" placeholder="someone@email.com">
 	      </div>
 	    </div>
-	    <div class="s-icon">
-	      <a href="#"><i class="fa fa-qq"></i></a>
-	      <a href="#"><i class="fa fa-weibo"></i></a>
-	      <a href="#"><i class="fa fa-twitter"></i></a>
-	      <a href="#"><i class="fa fa-globe"></i></a>
+	    <div class="icon">
+	      <a href="#"><i class="qq"></i></a>
+	      <a href="#"><i class="weibo"></i></a>
+	      <a href="#"><i class="twitter"></i></a>
+	      <a href="#"><i class="web"></i></a>
 	    </div>
 	    <div class="copyr">
 	      <span>@2016新世界</span>
