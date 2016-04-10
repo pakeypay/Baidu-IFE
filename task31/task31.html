@@ -1,0 +1,84 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<title>task31.html</title>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<style type="text/css">
+	#button1{
+		font-size:12px;/*设置文字字号*/
+		color: white;
+   		background-color:blue;/*设置颜色*/
+   		font-weight:bold;/*设置字体加粗*/
+   		border-radius:4px;
+   		height: 30px;
+   		width: 50px;
+	}
+	#city{
+		font-size:12px;/*设置文字字号*/
+   		border-radius:4px;
+   		width: 150px;
+   		margin:0pt 14pt 0pt 12pt;
+	}
+	#schoolname{
+		font-size:12px;/*设置文字字号*/
+   		border-radius:4px;
+   		width: 200px;
+   		margin:0pt 14pt 0pt 12pt;
+	}
+	.radio{
+		font-size:12px;/*设置文字字号*/
+		width: 20px;
+		margin:10pt 14pt 20pt 40pt;
+	}
+
+</style>
+<script type="text/javascript">
+	function change(){
+		document.getElementById("school").style.visibility='hidden';//在学校与公司之间切换
+		document.getElementById("company").style.visibility='visible';
+	}
+	function change1(){
+		document.getElementById("school").style.visibility='visible';//在学校与公司之间切换
+		document.getElementById("company").style.visibility='hidden';
+	}
+	function show(){
+		var sel = document.getElementById("city");
+		var selected_val = sel.options[sel.selectedIndex].value;//在校生根据城市对学校进行变换
+		if(selected_val=='1'){
+			var str =["北京大学","清华大学"];
+			var data='';
+			for(var i=0;i<str.length;i++){
+				data +="<option value ="+(i+1)+"+>"+str[i]+"</option>"	
+			}
+			document.getElementById("schoolname").innerHTML=data;
+		}
+		if(selected_val=='2'){
+			var str =["上海大学","复旦大学"];
+			var data='';
+			for(var i=0;i<str.length;i++){
+				data +="<option value ="+(i+1)+"+>"+str[i]+"</option>"	
+			}
+			document.getElementById("schoolname").innerHTML=data;
+		}
+	}
+</script>
+</head>
+<body>
+	<form action="post" id="form1">
+		<input type="radio" class="radio" name="radio" CHECKED id="student" onclick="change1(this)" >在校生</input>
+		<input type="radio" class="radio" name="radio" id="adult" onclick="change(this)">非在校生</input><br>
+		<div id="school" style="visibility:visible">
+			<label>学校</label><select id="city" onchange="show();">
+						  <option value ="1"  SELECTED >北京</option>
+						  <option value ="2">上海</option> 
+    			  </select>  
+    			  <select id="schoolname"><option value ="1">北京大学</option>
+						  <option value ="2">清华大学</option> 
+    			  </select>  
+		</div>
+		<div id="company" style="visibility:hidden">
+			<label>就业单位</label><input type="text" id=""></input>
+		</div>
+	</form>
+</body>
+</html>
