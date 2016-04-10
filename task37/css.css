@@ -1,0 +1,87 @@
+*{
+	margin: 0;
+	padding: 0;
+}
+body{
+	width: 100%;
+	height: 100%;
+	position: relative;
+}
+header	{
+	height: 60px;
+	background-color:#0C4CFF;
+    padding: 0 15%;
+}
+p{
+	font: 20px 'Heiti';
+	line-height: 40px;
+}
+
+section{
+	margin:0 80px;
+}
+
+a{
+	display: inline-block;
+	position: relative;
+	float: right;
+	color: #fff;
+	text-decoration: none;
+	line-height: 60px;
+	font-size:30px ;
+}
+
+#reAd {
+	line-height: 60px;
+	text-align: center;
+}
+#newLogin{
+    border:2px ;
+    width:300px;
+    height:200px;
+    background-color:#0C4CFF;
+    position:fixed;
+    margin:auto;
+    left:0;
+    right:0;
+    top:0;
+    bottom:0;
+    z-index: 2000
+}
+#backGcolor{
+
+	width: 100%;
+	height:100%;
+	background:gray;
+	position:fixed;	
+	filter: alpha;
+	opacity: 0.7;
+	z-index: 1000
+	top:0;
+	}
+#newLoginHead{
+	height: 50px;
+	background-color: gray;
+}
+#newLoginHead h1{
+	color: #fff;
+	line-height: 50px;
+	margin-left: 10px;
+}
+#newLoginHead input{
+	display: inline-block;
+	position: absolute;
+	right: 10px;
+	top: 10px;
+	width: 30px;
+	height: 30px;
+}
+textarea,button{
+	width: 80%;
+	height: 40px;
+	line-height: 40px;
+	margin:1% 10%;
+	text-align: center;
+	vertical-align: middle; 
+	font: 20px Bold;
+}
