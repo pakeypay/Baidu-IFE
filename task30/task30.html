@@ -3,36 +3,36 @@
 <head>
 <title>task30.html</title>
 <meta http-equiv="content-type" content="text/html; charset=UTF-8">
-<style type="text/css">
-	#button1{
-		font-size:12px;/*设置文字字号*/
-		color: white;
-   		background-color:blue;/*设置颜色*/
-   		font-weight:bold;/*设置字体加粗*/
-   		border-radius:4px;
-   		height: 30px;
-   		width: 50px;
-   		margin:10pt 10pt 0pt 160pt;
-	}
-	#name,#password,#password1, #email ,#phone{
-		font-size:12px;/*设置文字字号*/
-   		border-radius:4px;
-   		height: 24px;
-   		margin:0pt 10pt 0pt 10pt;
-	}
-	label{
-		display:inline-block;
-		width:100px;
-		font-size:20px;/*设置文字字号*/
-		text-align:right;
-	}
-	#hint{
-		font-size:12px;/*设置文字字号*/
-		color:#345456;
-		margin:0pt 0pt 0pt 0pt;
-	}
+			<style type="text/css">
+				#button1{
+					font-size:12px;/*设置文字字号*/
+					color: white;
+			   		background-color:blue;/*设置颜色*/
+			   		font-weight:bold;/*设置字体加粗*/
+			   		border-radius:4px;
+			   		height: 30px;
+			   		width: 50px;
+			   		margin:10pt 10pt 0pt 160pt;
+				}
+				#name,#password,#password1, #email ,#phone{
+					font-size:12px;/*设置文字字号*/
+			   		border-radius:4px;
+			   		height: 24px;
+			   		margin:0pt 10pt 0pt 10pt;
+				}
+				label{
+					display:inline-block;
+					width:100px;
+					font-size:20px;/*设置文字字号*/
+					text-align:right;
+				}
+				#hint{
+					font-size:12px;/*设置文字字号*/
+					color:#345456;
+					margin:0pt 0pt 0pt 0pt;
+				}
 
-</style>
+			</style>
 <script type="text/javascript">
 	
 	function show(pwd){
@@ -124,7 +124,7 @@
 	}
 	function checkAll(){
 		var str =["name","password","password1","email","phone"];//遍历所有元素
-		//alert("万事具备！");
+		alert("万事具备！");
 		for(var i=0;i<str.length;i++){
 			//alert(document.getElementById(str[i]+"hint").style.color=='red');
 			if (document.getElementById(str[i]+"hint").style.color=='red') {
@@ -139,7 +139,7 @@
 		<label>名称</label><input type="text" id="name" name="名称"onfocus="show(this);"  onblur="check(this);"></input><span id="namehint"></span><br>
 		<label>密码</label><input type="password" id="password" name="密码" onblur="check(this);"></input><span id="passwordhint"></span><br>
 		<label>密码确认</label><input type="password" id="password1" name="密码确认"  onfocus="show(this);" onblur="check(this);" ></input><span id="password1hint"></span><br>
-		<label>邮箱</label><input type="text" id="email" name="邮箱" onblur="check(this);"></input><span id="emailhint"></span><br>
+		<label>邮箱</label><input type="email" id="email" name="邮箱" onblur="check(this);"></input><span id="emailhint"></span><br>
 		<label>手机</label><input type="text" id="phone" name="手机" onblur="check(this);"></input><span id="phonehint"></span><br>
 		<input type="button" value="提交" id="button1" onclick="checkAll();"></input>
 	</form>

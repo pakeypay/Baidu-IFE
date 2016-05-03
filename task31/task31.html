@@ -43,17 +43,24 @@
 	}
 	function show(){
 		var sel = document.getElementById("city");
-		var selected_val = sel.options[sel.selectedIndex].value;//在校生根据城市对学校进行变换
-		if(selected_val=='1'){
+
+		var selected_val = sel.options[sel.selectedIndex].value;
+		//在校生根据城市对学校进行变换
+		if(selected_val==2){
 			var str =["北京大学","清华大学"];
 			var data='';
-			for(var i=0;i<str.length;i++){
-				data +="<option value ="+(i+1)+"+>"+str[i]+"</option>"	
+			for(var i=0;i<str.length;i++)
+		{
+				data +="<option value ="+(i+1)+">"+str[i]+"</option>"	
 			}
+
+
 			document.getElementById("schoolname").innerHTML=data;
 		}
-		if(selected_val=='2'){
+		if(selected_val==1){
 			var str =["上海大学","复旦大学"];
+
+
 			var data='';
 			for(var i=0;i<str.length;i++){
 				data +="<option value ="+(i+1)+"+>"+str[i]+"</option>"	

@@ -1,0 +1,19 @@
+.newTags{
+  margin: 20px 10px;
+  padding: 10px;
+  text-align: center;
+  background: #FF0000;
+  display: flex;
+  flex-flow: row wrap;
+}
+
+#tagArea{
+    position:relative;          /*position属性首先影响自身位置，其次影响子元素的基准*/
+    box-sizing:border-box;      /*W-H默认对应content-box*/
+    width:100%;
+    display: flex;
+    flex-flow: row wrap;
+    align-items:flex-end;
+    justify-content: flex-start;
+}
+

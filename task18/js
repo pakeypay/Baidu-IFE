@@ -1,0 +1,18 @@
+/*写入函数*/
+//定义数组
+
+
+/*输入左侧*/
+function(l_in)
+{	
+	var myarr=document.getElementById("boxx")
+	var adnum=document.creatElement("li")
+	adnum.innerHTML=document.tt.innerHTML;
+	insertBefore('adnum')
+}
+/*输入右侧*/
+/*输出左侧*/
+/*输出右侧*/
+
+
+/*建立输出的数组值*/

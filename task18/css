@@ -1,0 +1,31 @@
+body{font-size: 16px;}
+.boxx{margin:0;padding: 0;overflow:hidden;}
+li
+{
+
+	display:inline-block;
+	list-style: none;
+	background-color: red;
+	margin:10px;
+	padding:5px;
+	text-align: center;
+}
+			}
+
+/*			ul {
+    margin: 0;
+    padding: 0;
+}
+li {
+    list-style: upper-alpha;
+    transition: 1s;}
+    .data-list {
+    text-align: center;
+}
+.boxx > li {
+    display: inline-block;
+    padding: 10px;
+    background: lightblue;
+    color: #fff;
+    margin: 10px;
+    */

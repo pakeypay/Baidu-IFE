@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>task18</title>
+	<meta http-equiv="Content-Type" content="text/html" charset="UTF-8">
+	<link rel="stylesheet" href="index.css">
+</head>
+<body>
+<!--建立表单一个输入框，四个按钮-->
+	<form>
+		<input id="tt";type="text" maxLength="10" onKeypress="if (event.keyCode < 48 || event.keyCode > 57) event.returnValue = false;"><!--防止输入其他字节-->		
+		<input type="button" value="输入左侧" onclick="l_in" >
+		<input type="button" value="输入右侧" onclick="r_in">		
+		<input type="button" value="输出左侧" onclick="l_out">		
+		<input type="button" value="输出右侧" onclick="r_out">		
+	</form>
+<!--用list来存储数组-->
+	<ul id="otest" clearfix>
+		<li>1</li>
+		<li>2</li>
+		<li>3</li>
+<script>		function(l_in)
+{	
+	var otest= document.getElementById("otest");
+	var newnode=document.createElement("li");
+	var ttv=document.getElementById("tt").value;
+	newnode.innerHTML=ttv;
+	insertBefore(adnum,myarr)
+}
+</script>
+	</ul>
+<script src='js.js'></script>
+</body>
+</html>
