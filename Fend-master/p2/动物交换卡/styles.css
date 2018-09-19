@@ -1,0 +1,25 @@
+
+/* 添加 CSS */
+*{
+	padding: 5px;
+}
+img{
+    width:300px;border-radius: 10px;
+}
+#jj{
+	font-style: italic;
+}
+
+.liebiao{
+	list-style: none;
+}
+
+#frame{
+    width: 320px;border:2px solid orange; padding:10px;box-shadow: 2;border-radius: 20px;box-shadow: 10px 10px 5px gray;
+}
+#ms{
+	width: 290px;border: 1px solid gray; padding: 10px;border-radius: 10px;
+}
+.jc{
+	font-weight: bold;
+}
