@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>domselect</title>
+     <script>
+         //兼容配置
+        function addEvent(node,event,handler){
+            if (!!node.addEventListener){
+                node.addEventListener(event,handler,!1);
+            }else{
+                node.attachEvent('on'+event,handler);
+            }
+        }
+    </script>
+</head>
+<body>
+    <select name="year" id="year">
+
+        <option value="0">--</option>
+
+    </select>年
+
+    <select name="month" id="month">
+
+        <option value="0">--</option>
+
+        <option value="1">1</option>
+
+        <option value="2">2</option>
+
+        <option value="3">3</option>
+
+        <option value="4">4</option>
+
+        <option value="5">5</option>
+
+        <option value="6">6</option>
+
+        <option value="7">7</option>
+
+        <option value="8">8</option>
+
+        <option value="9">9</option>
+
+        <option value="10">10</option>
+
+        <option value="11">11</option>
+
+        <option value="12">12</option>
+
+    </select>月
+
+    <select name="date" id="date">
+
+        <option value="0">--</option>
+
+    </select>日
+    <script>
+        var year = document.getElementById('year'),
+            month = document.getElementById('month'),
+            date = document.getElementById('date');
+
+        //初始化
+        for(i = 1970; i<=2048;i++){
+            var option = new Option(i,i);
+            year.add(option,undefined);
+        }
+        month.setAttribute("disabled",true);
+        date.setAttribute("disabled",true);
+        //为年添加事件
+        addEvent(year,'change',function(event){
+            //
+            if(year.value!=0){
+                month.disabled=false;
+            }else{        //禁用月与日                    
+                month.selectedIndex=0;
+                month.disabled=true;
+                date.selectedIndex=0;
+                date.disabled=true;
+            }
+        })
+        //为月添加事件函数
+        addEvent(month,'change',function(event){
+            var maxDate;
+            date.disabled=false;
+            switch (event.target.value) {
+                case '0': date.disabled = true;break; //禁用日
+                case '1': maxDate = 31;break;
+                case '2': maxDate = (year % 4 == 0 && year % 100 !=0 || year % 400 ==0) ? 29 : 28;break; //判断闰年
+                case '3': maxDate = 31;break;
+                case '4': maxDate = 30;break;
+                case '5': maxDate = 31;break;
+                case '6': maxDate = 30;break;
+                case '7': maxDate = 31;break;
+                case '8': maxDate = 31;break;
+                case '9': maxDate = 30;break;
+                case '10': maxDate = 31;break;
+                case '11': maxDate = 30;break;
+                case '12': maxDate = 31;break;
+            };
+            //清除日选项
+            for(var i=date.length-1;i>0;i--){ 
+                date.remove(i);
+            }
+            //添加日选项
+            for(var i = 1; i <= maxDate;i++){
+                 var option = new Option(i,i);
+                 date.add(option,undefined);
+            }
+        });
+    
+    </script>
+</body>
+</html>

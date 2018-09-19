@@ -1,0 +1,79 @@
+
+function parseQuery(query){
+    var obj = {};
+    var arr = query.split('&');
+    arr[0] = arr[0].split('?')[1];
+    var len = arr.length;
+  while(len--)
+    {
+        var result =  arr[len].split('=');
+        obj[result[0]] = obj[result[1]];
+    }
+   return obj;
+}
+
+
+function multiply(){
+    var args=arguments;
+    var result=0;
+    for(var i=0;i<args.length;i++){
+        if(result)result*=args[i];
+        else result=args[i];
+    }
+    return result;
+}
+
+
+function getJsUrl(){
+	var pos,str,para,parastr; 
+	var array =[]
+	str = location.href; 
+	parastr = str.split("?")[1]; 
+	var arr = parastr.split("&");
+
+	for (var i=0;i<arr.length;i++){
+	array[arr[i].split("=")[0]]=arr[i].split("=")[1];
+	}
+
+	return array;	
+}
+
+var parseQuery = function(query){
+    var reg = /([^=&\s]+)[=\s]*([^=&\s]*)/g;
+    var obj = {};
+    while(reg.exec(query)){
+        obj[RegExp.$1] = RegExp.$2;
+    }
+    return obj;
+}
+var jerry = parseQuery("name=jerry&age=1");
+console.log(jerry);
+ 
+var tom = parseQuery("name= tom &age=12&gender&");
+console.info(tom);
+
+
+var url = "http://www.taobao.com/index.php?key0=0&key1=1&key2=2";  
+  
+function parseQueryString(url) {  
+    var str = url.split("?")[1], items = str.split("&");  
+    var result = {};  
+    var arr;  
+    for (var i = 0; i < items.length; i++) {  
+        arr = items[i].split("=");  
+        result[arr[0]] = arr[1];  
+    }  
+    return result;  
+}  
+  
+var obj = parseQueryString(url);  
+console.log(obj.key2);  
+  
+// 还可以通过正则表达式来做  
+function parse_url(_url) {//定义函数  
+  
+
+
+} 
+
+

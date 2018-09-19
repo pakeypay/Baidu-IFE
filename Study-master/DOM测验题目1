@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+</head>
+<body>
+  <div id="example">
+    <p id="p1" class="aaa bbb"/>1
+    <p id="p2" class="aaa ccc"/>2
+    <p id="p3" class="bbb ccc"/>3
+  </div>
+  <script>
+      function getElementsByClassName(element, names) {
+      if (element.getElementsByClassName) { //特性侦测
+          return element.getElementsByClassName(names)[0]
+          //优先使用W3C规范
+      } else {
+          var elements = element.getElementsByTagName('*');//获取所有后代元素
+          //选择包含类名的元素
+          var result = [];
+          var element,
+              classNameStr,
+              flag;
+          names = names.split(' ');//将字符串分割为字符串数组，方便下面循环判断
+          for (var i = 0; element = elements[i]; i++) {
+              classNameStr = ' ' + element.className + ' ';//返回所有后代元素的字符串
+              flag = true;
+              for (var j = 0, name; name = names[j]; j++) {
+                  if (classNameStr.indexOf(' ' + name + '') == -1) {//索引所有后代元素的字符串是否含有name
+                      flag = false;
+                      break;
+                  }
+              }
+              if (flag) {
+                  result.push(element);
+              }
+          }
+          return result[0];
+      }
+  }
+
+    var text = getElementsByClassName(document, 'aaa bbb');
+    alert(text.innerHTML);
+  </script>
+</body>
+</html>

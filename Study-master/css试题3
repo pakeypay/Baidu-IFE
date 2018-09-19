@@ -1,0 +1,5 @@
+body{margin: 0 auto;}    
+.slide{position: relative;width: 200px;height: 100px;background-color:#bdd7ee;}
+.slide .pointer{float: left;margin-top: 50px;margin-left: 150px;outline  : 1px solid red;}
+.pointer i{display: inline-block;width: 10px;height: 10px;margin-left: 5px;border-radius: 50%;background-color: #000;outline: 1px solid red;}
+.pointer i.current{background-color: #fff}

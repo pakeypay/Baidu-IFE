@@ -1,0 +1,21 @@
+.parent{margin: 0 auto;
+ position: relative;
+ overflow: hidden;
+ width: 810px;
+ line-height: 200px;
+}
+.side{
+    float: left;
+    width: 200px;
+    height: 100%;
+    background-color: red;
+    text-align:center;
+}
+.main{
+    float: right;
+    width: 600px;
+    height: 100%;
+    background-color: blue;
+    text-align:center;
+ 
+}

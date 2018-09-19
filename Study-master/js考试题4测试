@@ -1,0 +1,71 @@
+function myType(param){
+     if (param === null)
+        return 'null';
+    if (typeof param !== 'object')
+        return typeof param;
+     if (param instanceof Number)
+        return 'number'
+     if (param instanceof String)
+        return 'string'
+     if (param instancedof Date)
+        return 'date';
+     if (param instanceof Array)
+        return 'array';
+     if (param instanceof RegExp)
+        return 'regexp';
+    
+     return 'object';
+    
+}
+
+function type(obj){
+    return  Object.prototype.toString.call(obj).slice(8, -1).toLowerCase()
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+ <meta charset="UTF-8">
+ <title>函数mymyType用于根据输入参数返回相应的类型信息</title>
+</head>
+<body>
+<script myType="text/javascript">
+var str = new myType ();
+function myType (param){
+ if (param === null)
+        
+        return 'null';
+ 
+    if (typeof param !== 'object')
+        return typeof param;
+ 
+    if (param instanceof Number)
+        return 'number'
+ 
+    if (param instanceof String)
+        return 'string'
+ 
+    if (param instanceof Date)
+        return 'Date';
+ 
+    if (param instanceof Array)
+        return 'Array';
+ 
+    if (param instanceof RegExp)
+        return 'regexp';
+
+    if (param instanceof function(){})
+        return 'function';
+ 
+    return 'object';
+    
+ }
+ console.log(myType(1));
+    console.log(myType(false));
+    console.log(myType({}));
+    console.log(myType([]));
+    console.log(myType(function(){}));
+    console.log(myType(new Date));
+</script>
+</body>
+</html>

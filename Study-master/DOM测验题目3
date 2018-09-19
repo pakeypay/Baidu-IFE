@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>淡出效果</title>
+<style>
+
+#demo div.box {float:left;width:31%;margin:0 1%}
+#demo div.box h2{margin-bottom:10px}
+#demo div.box h2 input{padding:5px 8px;font-size:14px;font-weight:bolder}
+#demo div.box div{text-indent:10px; line-height:22px;border:2px solid #555;padding:0.5em;overflow:hidden}
+</style>
+
+</head>
+<body>
+
+    <div id="demo">    
+        <div class="box">
+            <h2><input type="button" value="点击淡出" /></h2>
+            <div id="fadeOut">
+                <p>函数fadeout(element)实现了元素的淡出效果（即透明度从1变到0），动画时间为1秒钟。用定时器setInterval实现动画</p>
+            </div>
+            <p>淡出效果</p>
+        </div>    
+    </div>
+
+</body>
+<script>
+window.onload = function(){
+
+
+//淡出
+function fadeout(elem){
+    var val = 1;  
+    var timer = null; 
+    timer = setInterval(function() { 
+            setOpacity(elem, val);
+            val -= 0.1;
+            if(val<0){clearInterval(timer);} 
+                                   }, 100); //100毫秒*10次=1秒     
+    //设置opacity 
+    function setOpacity(element,value){
+     element.filters ? element.style.filter ='alpha(opacity='+100*value+')' : element.style.opacity =value;
+    }
+}
+
+
+/////////////////////////////////////////////////////////////
+
+
+
+                         //  测  试     
+
+
+
+    var btn = $('demo').getElementsByTagName('input')[0];
+
+
+    btn.onclick = function(){ fadeout($('fadeOut')); }
+
+
+    //测试工具
+    function $(name){return document.getElementById(name);}
+
+
+
+
+}
+</script>
+</html>

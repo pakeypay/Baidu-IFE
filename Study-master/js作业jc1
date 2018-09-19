@@ -1,0 +1,6 @@
+function random(){
+	var baseNum ;
+	baseNum=Math.random()*999;
+	resNum=Math.round(baseNum);
+	return resNum;
+}

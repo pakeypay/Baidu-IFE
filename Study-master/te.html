@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset=utf-8>
+<title>JS Bin</title>
+<script>
+var $ = function(id) {
+    return document.getElementById(id);
+}
+ 
+/**
+ * [输入框通用的光标操作接口]
+ * @param {[element]} input [input为输入框，如input、textarea]
+ * @param {[number]} start [start为光标起始位置，如 0]
+ * @param {[number]} end   [end为光标结束为止，如 10]
+ */
+function SelectText(input,start,end) {
+      if(start > input.value.length || end > input.value.length) {
+          alert("输入光标大于文字长度，请重新输入！");
+          return null;
+      }
+     
+    if (start - end >= 0) {   // 如果star比end大，交换反向
+        var t = start;
+        start = end;
+        end = t;
+    }
+ 
+    if (!!input.setSelectionRange) {   //现代浏览器
+      input.setSelectionRange(start,end);
+    }
+    else if (!!input.createTextRange) {   //兼容
+      var range = input.createTextRange();
+      range.collapse(true);
+      range.moveStart('character',start);
+      range.moveEnd('character',end-start);
+      range.select(); 
+    }
+     
+    input.focus();
+ 
+    // 返回当前选择的文字
+    var userSelection;
+    if (window.getSelection) { //现代浏览器
+        userSelection = window.getSelection();
+    } else if (document.selection) { //IE浏览器 考虑到Opera，应该放在后面
+        userSelection = document.selection.createRange();
+    }
+    return userSelection;
+}
+ 
+</script>
+</head>
+<body>
+  <p><input type="text" id="mytextbox" size="20" value="Mozilla-----test-0-----test"/></p>
+  <p><button onclick="SelectTextTest()">Select text</button></p>
+  <script type="text/javascript">
+      // test
+      function SelectTextTest() {
+          var start = prompt("请输入光标起始位置");
+          var end = prompt("请输入光标结束位置");
+          SelectText($("mytextbox"), start, end);
+      }
+  </script>
+</body>
+</html>

@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>输入框通用光标操作接口</title>
+    <style>
+        .demo {
+            width: 500px; border: 1px solid green;
+            line-height: 25px; font-size: 25px;
+        }
+        form[name="test"] {display: absolute;margin-top:20px}
+        input[type="text"] {
+            width: 50px;
+            line-height: 15px; font-size: 15px;
+        }
+    </style>
+    <script type="text/javascript">
+     //兼容版事件注册方法addEvent() 
+        //@param    node    {Object}    节点对象
+        //@param    event   {String}    事件名
+        //@param    handler {Function}  事件处理函数
+        //return    none
+        function addEvent(node,event,handler){
+            if (!!node.addEventListener){
+                node.addEventListener(event,handler,!1);
+            }else{
+                node.attachEvent('on'+event,handler);
+            }
+        }
+    </script>
+</head>
+<body>
+    <!--demo代码-->
+    <form name="demo">
+    <label for="demo1">请输入:</label><input type="textarea" name="demo1" class="demo" cols="50px" value="test test test test test test test "></br></br>
+    <label for="damo2">请输入:</label>
+    <textarea name="demo2" class= "demo">test test test test test test test test test test test test test test test test</textarea>
+    </form>
+    <!--/demo代码-->
+    <!--测试代码-->
+    <form name="test">
+    <label for="start">光标起点：</label>
+    <input type="text" name="start" class="test"></br></br>
+    <label for="end">光标终点：</label>
+    <input type="text" name="end" class="test"></br></br>
+    <input type="button" name="showbtn1" class="test" value="单击input">
+    <input type="button" name="showbtn2" class="test" value="单击textarea">
+    </form>   
+    <!--/测试代码-->
+    <script>
+        //通用输入框光标操作接口selection()
+        //@param    input    {Node}    输入框节点，如input,textarea
+        //@param    start    {Numer}   光标起始位置索引值
+        //@param    end      {Number}  光标终止位置索引值
+        //return    none
+        //函数开始
+        function selection(input,start,end) {
+            if (input.setSelectionRange) {    //优先使用标准DOM方法
+                input.setSelectionRange(start,end);
+            } else if (input.createTextRange) {   //兼容IE8-
+                var range = input.createTextRange(); //创建范围
+                range.collapse(true);   //将范围折叠至起点
+                range.moveStart("character", start);  //将范围起点移至start
+                range.moveEnd("character", end);   //将范围终点移至end
+                range.select();     //选择范围内的文本
+            }
+            input.focus();  //聚焦输入框以显示选中效果
+        }
+ 
+        //DOM节点
+        var input = document.forms["demo"].demo1;
+        var textarea = document.forms["demo"].demo2;
+        var start = document.forms["test"].start;
+        var end   = document.forms["test"].end;
+        var showbtn1 = document.forms["test"].showbtn1;
+        var showbtn2 = document.forms["test"].showbtn2;
+     
+        //通过按钮点击来调用光标操作接口
+        addEvent(showbtn1,"click",function () {
+            selection(input, parseInt(start.value), parseInt(end.value));
+             
+        });
+        addEvent(showbtn2, "click", function() {
+            selection(textarea,parseInt(start.value),parseInt(end.value));
+        });
+         
+    </script>
+</body>
+</html>

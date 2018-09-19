@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>ol test</title>
+	<link rel="stylesheet" type="text/css" href="">
+	<meta charset="utf-8">
+	<style type="text/css" >
+</style>
+</head>
+<body>
+<form action="/login" method="post">
+	<div>
+	<label for="tx">头像</label>	
+	<input type="file" name="tx" id="tx"></input>
+	</div>
+	<div>
+	<label for="nc">昵称</label>
+	<input type="text" name="nc" id="nc"></input>
+	</div>
+	<div>
+	<label id="xl">学历</label>
+	<select type="option" name="xl" id="xl">
+		<option selected>大专</option>
+		<option>本科</option>
+	</select>
+	</div>
+	<div>
+	<label for="xb">性别</label>
+	<input type="radio" name="xb" id="xb" value="female">男</input>
+	<input type="radio" name="xb" id="xb" value="male">女</input>
+	</div>
+	<div>
+	<label for="ah">爱好</label>
+	<input type="checkbox" name="ah" id="ah" value="0" >电影</input>
+	<input type="checkbox" name="ah" id="ah" value="1" >音乐</input>
+	<input type="checkbox" name="ah" id="ah" value="2" >阅读</input>
+	<input type="checkbox" name="ah" id="ah" value="3" >摄影</input>
+	</div>
+	<div>
+	<label for="qm">签名</label>
+	<textarea name="qm" id="qm">选择文件</textarea>
+	</div>
+	<div>
+	<button type="submit" id="bc">保存</button>
+	</div>
+</form>
+</body>
+</html>

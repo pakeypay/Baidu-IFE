@@ -1,0 +1,12 @@
+var escapeHTML=function(str){
+    var map={
+        '>':'&gt;',
+        '<':'&lt;',
+        '&':'&amp;',
+        '"':'&quot;'
+    };
+    for(var p in map){
+        str=str.replace(new RegExp(p,'g'),map[p]);
+    }
+    return str;
+}

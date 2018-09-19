@@ -1,0 +1,54 @@
+function type(obj){
+ 
+    if (obj === null)
+        return 'null';
+ 
+    if (typeof obj !== 'object')
+        return typeof obj;
+ 
+    if (obj instanceof Number)
+        return 'number'
+ 
+    if (obj instanceof String)
+        return 'string'
+ 
+    if (obj instanceof Date)
+        return 'Date';
+ 
+    if (obj instanceof Array)
+        return 'Array';
+ 
+    if (obj instanceof RegExp)
+        return 'regexp';
+ 
+    return 'object';
+     
+}
+
+<script>
+/*Object.prototype.toString.call*/
+//js中的一个方法
+var myType=function(value){
+return Object.prototype.toString.call(value);
+}
+if(myType(null)){
+alert("我是一个空对象");//[object Null]
+}
+if(myType ({})){
+alert("I am an Object!")
+}
+if( myType (function(){})){
+alert("I am an Function!")
+}
+if( myType ([])){
+alert("I am an Array!")
+}
+if( myType (new Date())){
+alert("I am an Date!")
+}
+//...
+</script>
+
+function type(obj){
+    return  Object.prototype.toString.call(obj).slice(8, -1).toLowerCase()
+}

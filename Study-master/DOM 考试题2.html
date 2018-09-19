@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>domselect</title>
+     <script>
+         //兼容配置
+        function addEvent(node,event,handler){
+            if (!!node.addEventListener){
+                node.addEventListener(event,handler,!1);
+            }else{
+                node.attachEvent('on'+event,handler);
+            }
+        }
+    </script>
+</head>
+<body>
+    <!--使用题目原始代码-->
+    <select name="year" id="year">
+        <option value="0">--</option>
+        <option value="1999">1999</option>
+        <option value="2000">2000</option>
+        <option value="2001">2001</option>
+    </select>年
+    <select name="month" id="month">
+        <option value="0">--</option>
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+        <option value="5">5</option>
+        <option value="6">6</option>
+        <option value="7">7</option>
+        <option value="8">8</option>
+        <option value="9">9</option>
+        <option value="10">10</option>
+        <option value="11">11</option>
+        <option value="12">12</option>
+    </select>月
+    <select name="date" id="date">
+        <option value="0">--</option>
+    </select>日
+    <!--题目要求，1，初始状态（年）2，初始状态（月日）3，年月确定显示日-->
+    <script>
+        var year = document.getElementById('year'),
+            month = document.getElementById('month'),
+            date = document.getElementById('date');
+            month.setAttribute("disabled",true);
+            date.setAttribute("disabled",true);
+        //初始状态（年），非初始状态月日可用。
+        addEvent(year,'change',function(event){
+            if(year.value!=0){
+                month.disabled=false;
+            }else{                            
+                month.selectedIndex=0;
+                month.disabled=true;
+                date.selectedIndex=0;
+                date.disabled=true;
+            }
+        })
+        //初始状态（月），日不可用。1，3，5，7，8，10，12，为31 天。2要判断
+        addEvent(month,'change',function(event){
+            var maxDate;
+            date.disabled=false;
+            switch (event.target.value) {
+                case '0': date.disabled = true;break; 
+                case '1':case '3':case '5':case '7':case '8':case '10':case '12': 
+                    maxDate = 31;break;
+                case '4':case '6':case '9':case '11':
+                    maxDate = 30;break;
+                case '2': 
+                maxDate = (year % 4 == 0 && year % 100 !=0 || year % 400 ==0) ? 29 : 28;break; 
+            };
+            //初始化日下拉列表
+            for(var i=date.length-1;i>0;i--){ 
+            date.remove(i);
+            }
+            //生成日列表
+            for(var i = 1; i <= maxDate;i++){
+             var option = new Option(i,i);
+             date.add(option,undefined);
+            }
+        });    
+    </script>
+</body>
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>图片hover放大的实现</title>
+	<style type="text/css">
+	.image{
+		/* 固定容器大小 */
+		width:225px;height:142px;
+		/* 防止溢出 */
+		overflow:hidden;
+	}
+	.image img{
+		/* 图片和容器等大 */
+		width:100%;height:100%;
+		/* 注册过渡 */
+		transition:2s;
+	}
+	/* hover到容器上时图片放大2倍 */
+	.image:hover img{
+		transform:scale(5);
+	}
+	</style>
+</head>
+<body>
+<div class="image">
+	<img src="http://imgsize.ph.126.net/?enlarge=true&imgurl=http://nos.netease.com/edu-image/6BD5C3FBE9C15EEBF841D6F038C6C3EB.png?imageView&thumbnail=225y142&quality=100_225x142x1x95.png?imageView&thumbnail=225y142&quality=100" alt="">
+</div>
+</body>
+</html>

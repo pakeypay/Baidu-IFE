@@ -1,0 +1,27 @@
+if (typeof Object.create != 'function') {
+//判断
+  Object.create = (function() {
+    function cNewfuc() {}
+    var hasOwn = Object.prototype.hasOwnProperty;
+    return function (ts) {
+      if (typeof ts != 'object') {
+        throw TypeError('Object prototype may only be an Object or null');
+      }
+    //报错   
+      cNewfuc.prototype = ts;
+      var obj = new cNewfuc();
+      cNewfuc.prototype = null; 
+      if (arguments.length > 1) {
+        var Properties = Object(arguments[1]);
+        for (var prop in Properties) {
+          if (hasOwn.call(Properties, prop)) {
+            obj[prop] = Properties[prop];
+          }
+        }
+      }
+      return obj;
+    //返回函数
+    };
+    //包裹函数
+  })();
+}  

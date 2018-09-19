@@ -1,0 +1,19 @@
+function search(arr,value) {
+
+    if(!value|| !(arr instanceof Array)) return "";
+    function tempFun(startNum,endNum){
+        var lenTh = arr.length,
+            startNum=typeof startNum === "number" ? startNum : 0,
+            endNum=typeof endNum   === "number" ? endNum   : lenTh-1,
+            midNum=Math.floor((startNum + endNum) / 2),
+            tempArr=arr[midNum];
+        if(startNum > endNum) return "";
+        if(tempArr == value){
+            return midNum;
+        }else if (tempArr > value) {
+            return tempFun(startNum, midNum-1);
+        }else {
+            return tempFun(midNum+1, endNum);
+        }
+    }
+}

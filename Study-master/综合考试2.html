@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>ol test</title>
+	<link rel="stylesheet" type="text/css" href="">
+	<meta charset="utf-8">
+	<style type="text/css">
+		* {
+		margin:0;
+		padding:0;
+		}
+		thead{
+			display: inline-block;
+			margin-bottom: 15px;
+		}
+		h1{
+			font-size: 14px;
+			line-height: 16px;
+			font-family: "微软雅黑"
+		}
+		label{
+			display: inline-block;
+			margin-right: 15px;	
+			width: 60px;	
+			vertical-align: center;
+		}
+		p{
+			font-size: 12px ;
+			font-family:"宋体";
+			display: inline-block;
+		}
+		input{
+			width: 200px;
+			height: 20px;
+			border: 1px solid #ddd;
+		}
+		tr{
+			display: block;
+			margin-bottom: 15px;
+		}
+		button{
+			width: 40px;
+			height: 20px;
+			background-color: blue;
+			border: none;
+			color: white;
+		}
+	</style>
+</head>
+<body>
+<form action="/login" method="post">
+    <div id="container">
+    <table>
+        <tbody>
+        <tr><h1>登陆网易通行证</h1>
+        <tr>
+            <td><label for="yhm"><p>用户名：</p></label></td>
+            <td><input type="text" id="yhm" name="zh" /></td>
+        </tr>
+        <tr>
+            <td><label for="mm"><p>密码：</p></label></td>
+            <td><input type="password" id="mm" name="mm" /></td>
+        </tr>
+        <tr>
+            <td><label for="dl"></label></td>
+            <td><button id="dl" type="submit"><p>登录</p></button></td>
+        </tr>
+        </tbody>
+    </table>
+    </div>
+</form> 
+</body>
+</html>
